@@ -13,6 +13,7 @@ import kodlamaio.HRMS.entities.concretes.User;
 public class UserManager implements UserService {
 	
 	private UserDao userDao;
+	
 	@Autowired
 	public UserManager(UserDao userDao) {
 		super();

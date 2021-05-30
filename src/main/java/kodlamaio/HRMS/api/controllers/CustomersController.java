@@ -26,7 +26,7 @@ public class CustomersController {
 		super();
 		this.customerService = customerService;
 	}
-	@GetMapping("/getAll")
+	@GetMapping("/getall")
 	public List<Customer> getAll() {
 		return this.customerService.getAll();
 	}

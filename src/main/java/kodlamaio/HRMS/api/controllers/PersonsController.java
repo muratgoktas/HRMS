@@ -25,7 +25,7 @@ public class PersonsController {
 		this.personService = personService;
 	}
 
-	@GetMapping("/getAll") // Veri istediği için
+	@GetMapping("/getall") // Veri istediği için
 	public List<Person> getAll() {
 		return this.personService.getAll();
 	}

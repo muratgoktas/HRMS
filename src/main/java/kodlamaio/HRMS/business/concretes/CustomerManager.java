@@ -12,6 +12,7 @@ import kodlamaio.HRMS.entities.concretes.Customer;
 
 @Service
 public class CustomerManager implements CustomerService {
+	
 	private CustomerDao cutomerDao;
 
 	@Autowired // CustoomerDao interface 

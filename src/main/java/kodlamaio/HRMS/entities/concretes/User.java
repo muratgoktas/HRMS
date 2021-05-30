@@ -14,7 +14,7 @@ import lombok.Data;
 //C#  attribitudt demek. 
 
 @Entity // Spring IEntity yerine bunu kullanıyor artık.
-@Table(name="Users") 
+@Table(name="users") 
 @Data  //lombakın get ve setleri getirmesi için.
 public class User {
 

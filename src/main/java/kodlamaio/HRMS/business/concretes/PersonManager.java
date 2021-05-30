@@ -13,6 +13,7 @@ import kodlamaio.HRMS.entities.concretes.Person;
 public class PersonManager implements PersonService{
 	
 	private PersonDao personDao;
+	
 	@Autowired
 	public PersonManager(PersonDao personDao) {
 		super();
