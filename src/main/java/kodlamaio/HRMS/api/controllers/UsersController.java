@@ -8,21 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.HRMS.business.abstracts.UserService;
+import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.entities.concretes.User;
 
-@RestController
+@RestController //Java olmayan uygulamalarda beni kullansın.
 @RequestMapping("/api/users")
 public class UsersController {
+	
 	private UserService userService;
-	@Autowired
+	
+	@Autowired	
 	public UsersController(UserService userService) {
 		super();
 		this.userService = userService;
 	}
-	
-	@GetMapping("/getall")
-	public List<User> getAll() {
-		
+
+	@GetMapping("/getAll")
+	public DataResult<List<User>>  getAll() {
+
 		return this.userService.getAll();
 	}
 }
