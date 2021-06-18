@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.HRMS.business.abstracts.UserService;
 import kodlamaio.HRMS.core.utilities.result.DataResult;
-import kodlamaio.HRMS.entities.concretes.User;
+import kodlamaio.HRMS.entities.abstracts.User;
+
 
 @RestController //Java olmayan uygulamalarda beni kullansın.
 @RequestMapping("/api/users")

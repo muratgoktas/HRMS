@@ -1,27 +1,27 @@
 package kodlamaio.HRMS.entities.concretes;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import kodlamaio.HRMS.entities.abstracts.Person;
 
-@Data
+
 @Entity
-@Table(name="jobseekers")
-@NoArgsConstructor
-@AllArgsConstructor
-public class Jobseeker {
+@Table(name="jobseekers", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+
+public class Jobseeker extends Person {
 		
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name="id")
 		private int id;
+		
+		@OneToOne(mappedBy = "jobseeker",cascade=CascadeType.ALL)
+		private Person person;
 		
 		@Column(name="sector_id" )
 		private int sectorId;
