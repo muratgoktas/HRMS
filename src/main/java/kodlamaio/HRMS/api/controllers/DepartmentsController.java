@@ -13,10 +13,12 @@ import kodlamaio.HRMS.core.utilities.result.DataResult;
 import kodlamaio.HRMS.core.utilities.result.Result;
 import kodlamaio.HRMS.entities.concretes.Department;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @RestController // Java olmayanlarda beni kullansın.
 @RequestMapping("/api/departments")
 @AllArgsConstructor
+@NoArgsConstructor
 public class DepartmentsController {
 	
 	private DepartmentService departmentService;
