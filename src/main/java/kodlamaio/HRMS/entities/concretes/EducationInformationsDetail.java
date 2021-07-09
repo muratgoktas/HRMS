@@ -7,18 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import kodlamaio.HRMS.entities.abstracts.EducationInformationsTitle;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name="EducationInformationsDetail")
 @Table(name = "EducationInformationsDetail", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "ID")})
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class EducationInformationsDetail extends EducationInformationsTitle  {
+public class EducationInformationsDetail  {
 
 	@Id
 	@Column(name="id")

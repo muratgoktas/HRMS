@@ -20,19 +20,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DepartmentsController {
-	
+
 	private DepartmentService departmentService;
-	
+
 	@GetMapping("/getall")
-	public DataResult<List<Department> > getAll() {
+	public DataResult<List<Department>> getAll() {
 		return this.departmentService.getAll();
-				
+
 	}
-	
+
 	@PostMapping("/add")
-	//@RequestBody Department dan türemiş bir department nesnesi oluşturuyor.
+	// @RequestBody Department dan türemiş bir department nesnesi oluşturuyor.
 	public Result add(@RequestBody Department department) {
-	
+
 		return this.departmentService.add(department);
 	}
 }

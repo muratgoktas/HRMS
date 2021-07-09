@@ -10,14 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.UniqueConstraint;
 import java.util.Set;
 
 @Data
-@Entity(name = "ForeignKeyAssoEntity")
+@Entity(name = "Subscriber")
 @Table(name = "Subscribers", uniqueConstraints = { @UniqueConstraint(columnNames = "id") })
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Subscriber {
 
 	@Id

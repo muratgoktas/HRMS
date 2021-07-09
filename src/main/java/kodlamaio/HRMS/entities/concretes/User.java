@@ -1,17 +1,15 @@
-package kodlamaio.HRMS.entities.abstracts;
+package kodlamaio.HRMS.entities.concretes;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
-import kodlamaio.HRMS.entities.concretes.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,27 +27,19 @@ import lombok.NoArgsConstructor;
 
 @Data // lombakın get ve setleri getirmesi için.
 
-@Entity(name = "ForeignKeyAssoAccountEntity") // Spring IEntity yerine bunu kullanıyor artık.
-@Table(name = "Users", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "ID")})
-
+@Entity(name = "User") // Spring IEntity yerine bunu kullanıyor artık.
+@Table(name = "Users")
 @AllArgsConstructor
 @NoArgsConstructor
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorValue("Users")
 
-public abstract class User {
+public  class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Id nin otomatik artaşağını söyler.
-	@Column(name = "id")
-	private int id;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private Customer customer;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private Person person;
+	private Integer id;
 
 	@Column(name = "userName")
 	private String userName;
@@ -65,7 +55,5 @@ public abstract class User {
 
 	@Column(name = "rol")
 	private int rol;
-
-	
 
 }

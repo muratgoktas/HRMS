@@ -1,27 +1,24 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import kodlamaio.HRMS.entities.abstracts.Person;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
-@Entity
-@Table(name="jobseekers", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@Entity(name="jobseeker")
+@Table(name="jobseekers") //, uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class Jobseeker extends Person {
 		
-		@Id
-		@Column(name="id")
-		private int id;
-		
-		@OneToOne(mappedBy = "jobseeker",cascade=CascadeType.ALL)
-		private Person person;
 		
 		@Column(name="sector_id" )
 		private int sectorId;

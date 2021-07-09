@@ -1,34 +1,46 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import kodlamaio.HRMS.entities.abstracts.User;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Entity()// USERDAN GELDIGI ICIN KALDIRDIK(name = "ForeignKeyAssoAccountEntity")
-@Table(name = "Customers", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "ID")})
-
+@Entity(name = "Customer")
+@Table(name = "Customers", uniqueConstraints = { @UniqueConstraint(columnNames = "ID") })
+@DiscriminatorValue("Customers")
+@PrimaryKeyJoinColumn(name = "id")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 // source documents :https://howtodoinjava.com/hibernate/hibernate-one-to-one-mapping/
-public class Customer extends User {
+public class Customer {
 
 	@Id
 	@Column(name = "id")
-	private Integer id;
-	
-	@OneToOne(mappedBy="customer", cascade=CascadeType.ALL)
+	private int id;
+
+	@OneToOne
+	@MapsId
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private User user;
 	
+	@Column(name = "users_id", insertable = false, updatable = false)
+	private Integer users_id;
+
 	@Column(name = "companyName")
 	private String companyName;
 
@@ -37,8 +49,8 @@ public class Customer extends User {
 
 	@Column(name = "taxName")
 	private String taxName;
-
-	@ManyToOne
-	private Subscriber subscriber;
+	/*
+	 * @ManyToOne private Subscriber subscriber;
+	 */
 
 }

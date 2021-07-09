@@ -9,14 +9,17 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Entity
 @Table(name = "EducationInformationsTitle", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "ID")})
 
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class EducationInformationsTitle {
 	
 	@Id

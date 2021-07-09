@@ -24,7 +24,8 @@ public class DepartmentManager implements DepartmentService {
 	
 	@Override
 	public DataResult<List<Department>>  getAll() {
-		return new SuccessDataResult<List<Department>>(this.departmentDao.findAll(),"Data Listed!");
+		return new SuccessDataResult<List<Department>>
+		(this.departmentDao.findAll(),"Data Listed!");
 				
 				
 	}
