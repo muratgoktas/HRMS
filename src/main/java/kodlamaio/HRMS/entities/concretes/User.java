@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//Anatasyon: çalışma anında class hakkında bilgi toplam . 
+//Anatasyon: çalışma anında class hakkında bilgi toplama . 
 //Classın hangi katmana denk geldiğini gösterir.
 //Aşağıdaki uygulama şekli var. Spring için anatasyonu
 //C#  attribitudt demek. 

@@ -29,15 +29,13 @@ import lombok.Setter;
 // source documents :https://howtodoinjava.com/hibernate/hibernate-one-to-one-mapping/
 public class Customer {
 
-	@Id
-	@Column(name = "id")
-	private int id;
 
 	@OneToOne
 	@MapsId
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private User user;
 	
+	@Id
 	@Column(name = "users_id", insertable = false, updatable = false)
 	private Integer users_id;
 
